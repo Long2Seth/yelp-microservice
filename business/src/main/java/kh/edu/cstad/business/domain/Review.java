@@ -1,10 +1,12 @@
-package kh.edu.cstad.business.domain;
 
+package kh.edu.cstad.business.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -22,4 +24,12 @@ public class Review {
     private int rating;
 
     private String text;
+
+    @ManyToOne
+    @JoinColumn(name = "business_id", nullable = false)
+    private Business business;
+
+    @OneToMany(mappedBy = "review")
+    private List<ReviewBookmark> reviewBookmarks;
 }
+

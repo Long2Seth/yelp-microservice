@@ -1,10 +1,10 @@
 package kh.edu.cstad.business.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 
 @Setter
 @Getter
@@ -35,4 +35,6 @@ public class City {
     @ManyToOne
     private Country country;
 
+    @OneToMany(mappedBy = "city")
+    private List<Business> businesses;
 }

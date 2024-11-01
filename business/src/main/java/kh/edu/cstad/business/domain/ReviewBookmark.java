@@ -1,6 +1,5 @@
 package kh.edu.cstad.business.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +16,7 @@ public class ReviewBookmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @ManyToOne
+    @JoinColumn(name = "review_id", nullable = false)
+    private Review review;
 }

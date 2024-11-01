@@ -1,10 +1,11 @@
 package kh.edu.cstad.business.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -23,4 +24,6 @@ public class Category {
     @Column(unique = true , nullable = false)
     private String title;
 
+    @ManyToMany(mappedBy = "categories")
+    private Set<Business> businesses;
 }

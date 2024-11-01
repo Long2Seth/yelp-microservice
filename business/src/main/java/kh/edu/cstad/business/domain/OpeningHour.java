@@ -1,6 +1,5 @@
 package kh.edu.cstad.business.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +28,7 @@ public class OpeningHour {
     @Column(nullable = false)
     private boolean isOverNight;
 
+    @ManyToOne
+    @JoinColumn(name = "business_id", nullable = false)
+    private Business business;
 }
